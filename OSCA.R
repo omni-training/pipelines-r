@@ -1,11 +1,13 @@
-library(SingleCellExperiment)
-library(scuttle)
-library(AnnotationDbi)
-library(scran)
-library(scater)
-library(bluster)
-library(EnsDb.Hsapiens.v75)
-
+suppressPackageStartupMessages({
+  library(SingleCellExperiment)
+  library(scuttle)
+  library(AnnotationDbi)
+  library(scran)
+  library(scater)
+  library(bluster)
+  library(EnsDb.Hsapiens.v75)
+})
+  
 run_osca <- function(
   sce, n_cluster, n_comp = 50, n_neig = 15, n_hvg = 1000,
   filter = c("manual", "auto"), time, clustering_info

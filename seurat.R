@@ -1,5 +1,8 @@
-library(Seurat)
-library(SingleCellExperiment)
+
+suppressPackageStartupMessages({
+  library(Seurat)
+  library(SingleCellExperiment)
+})
 
 run_seurat <- function(
   sce, n_cluster, n_comp = 50, n_neig = 15, n_hvg = 1000,

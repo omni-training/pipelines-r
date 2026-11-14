@@ -1,6 +1,8 @@
-library(SingleCellExperiment)
-library(DelayedArray)
-library(scrapper)
+suppressPackageStartupMessages({
+  library(SingleCellExperiment)
+  library(DelayedArray)
+  library(scrapper)
+})
 
 run_scrapper <- function(
   sce, n_cluster, n_comp = 50, n_neig = 15, n_hvg = 1000,
