@@ -20,7 +20,7 @@ parser$add_argument("--data_clusters_truth_num", dest = "data_clusters_truth_num
 
 # params
 parser$add_argument("--method_name", dest = "method_name", type = "character",
-                    help = "name of the method", choices = c("osca", "scrapper", "seurat"), required = TRUE)
+                    help = "name of the method", choices = c("osca", "scrapper", "seurat", "bixverse"), required = TRUE)
 parser$add_argument("--d_cluster", dest = "d_cluster", type = "integer",
                     help = "delta to true number of clusters", required = TRUE)
 parser$add_argument("--n_comp", dest = "n_comp", type = "integer",
@@ -92,6 +92,11 @@ if (args$method_name == "seurat") {
   # scrapper --------------------------------------------------------------
   source(file.path(run_dir, "scrapper.R"))
   output_data <- run_scrapper(sce, n_cluster, args$n_comp, args$n_neig, 
+                              args$n_hvg, args$filter, time, clustering_info)
+} else if (args$method_name == "bixverse") {
+  # scrapper --------------------------------------------------------------
+  source(file.path(run_dir, "bixverse.R"))
+  output_data <- run_bixverse(sce, n_cluster, args$n_comp, args$n_neig, 
                               args$n_hvg, args$filter, time, clustering_info)
 }
 
