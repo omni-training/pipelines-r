@@ -4,6 +4,7 @@ suppressPackageStartupMessages({
   library(argparse)
   library(jsonlite)
   library(anndataR)
+  library(SingleCellExperiment)
 })
 
 parser <- ArgumentParser(description = "Benchmarking entrypoint")
