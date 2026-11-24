@@ -3,7 +3,7 @@
 suppressPackageStartupMessages({
   library(argparse)
   library(jsonlite)
-  library(zellkonverter)
+  library(anndataR)
 })
 
 parser <- ArgumentParser(description = "Benchmarking entrypoint")
@@ -63,7 +63,7 @@ source(search_res_path)
 
 
 # read data in
-sce <- readH5AD(args$data_h5ad, reader = "python")
+sce <- read_h5ad(args$data_h5ad, as = "SingleCellExperiment")
 clusters_truth_num <- as.integer(readLines(args$data_clusters_truth_num, n = 1))
 n_cluster <- clusters_truth_num + args$d_cluster
 
