@@ -64,6 +64,7 @@ source(search_res_path)
 
 # read data in
 sce <- read_h5ad(args$data_h5ad, as = "SingleCellExperiment")
+names(assays(sce))[3] <- "counts"
 clusters_truth_num <- as.integer(readLines(args$data_clusters_truth_num, n = 1))
 n_cluster <- clusters_truth_num + args$d_cluster
 
