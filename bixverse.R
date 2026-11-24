@@ -158,14 +158,9 @@ run_bixverse <- function(
   louvain_search <- binary_search(
     sc_object,
     do_clustering = function(spe, resolution) {
-      spe <- find_clusters_sc(
-        spe,
-        cluster_algorithm = "louvain",
-        res = resolution,
-        name = "louvain",
-        .verbose = FALSE
-      )
-      get_sc_obs(spe, filtered = TRUE)[["louvain"]]
+        spe <- find_clusters_sc(spe, cluster_algorithm = "louvain", 
+                                res = resolution, name = "louvain")
+        get_sc_obs(spe, filtered = TRUE)[["louvain"]]
     },
     extract_nclust = function(result) length(unique(result)),
     n_clust_target = n_cluster
@@ -194,13 +189,8 @@ run_bixverse <- function(
   leiden_search <- binary_search(
     sc_object,
     do_clustering = function(spe, resolution) {
-      spe <- find_clusters_sc(
-        spe,
-        cluster_algorithm = "leiden",
-        res = resolution,
-        name = "leiden",
-        .verbose = FALSE
-      )
+      spe <- find_clusters_sc(spe, cluster_algorithm = "leiden",
+                              res = resolution, name = "leiden")
       get_sc_obs(spe, filtered = TRUE)[["leiden"]]
     },
     extract_nclust = function(result) length(unique(result)),
